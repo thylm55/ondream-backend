@@ -1,0 +1,21 @@
+DreamSocl - API Spec
+
+1. Register user
+POST http://localhost/api/v1/register
+params: name, email, password, sleep, wakeup
+
+2. Sign in
+POST http://localhost/api/v1/login
+params: email, password
+
+3. Xem tất cả giấc mơ trên trang chủ
+GET http://localhost/api/v1/dreams
+params: user_id
+
+4. Xem tất cả giấc mơ trên timeline
+GET http://localhost/api/v1/timeline
+params: user_id
+
+5. Lấy danh sách bạn
+GET http://localhost/api/v1/friends
+params: user_id

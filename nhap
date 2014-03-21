@@ -1,0 +1,57 @@
+Xây dựng mạng xã hội về giấc ngủ
+
+Yêu cầu chức năng
+- Người dùng có thể đăng ký tài khoản, khi đăng ký người dùng nhập tên, email, mật khẩu, thời gian đi ngủ hàng ngày, thời gian ...
+- Người dùng đăng nhập vào hệ thống
+- Sau khi đăng nhập, người dùng có thể đọc các giấc mơ của bạn bè dưới dạng news feed
+- Trang cá nhân của người dùng là danh sách các giấc mơ dưới dạng timeline
+- Người dùng có thể bình luận lên giấc mơ của những người khác
+- Người dùng có thể đăng một giấc mơ, mỗi giấc mơ sẽ có tùy chọn để cài đặt quyền xem giấc mơ (public, friend, private), mơ về ai đó, tags liên quan đến giấc mơ.
+- Người dùng có thể kết bạn với nhau
+- Có trang hiển thị danh sách bạn bè bao gồm tên và trạng thái của bạn bè đó (trạng thái: none, đang ngủ, mất ngủ)
+- Người dùng có thể gửi thông điệp chúc ngủ ngon, chào buổi sáng đến 1 người bạn, có hoặc không kèm tin nhắn chúc
+- Người nhận thông điệp chào buổi sáng sẽ nhận được thông điệp dưới dạng notification (không có âm thanh) vào buổi sáng gần nhất
+- Có các tips liên quan đến giấc ngủ hiện lên trên trang chủ một cách ngẫu nhiên
+- Người dùng có thể tìm kiếm các giấc mơ theo các tag
+- Người dùng có thể cài đặt chuông báo thức hộ người khác trong danh sách bạn bè, có các tùy chọn để cài đặt thời gian, nhạc chuông, lời chúc. Người nhận chuông báo thức có thể đồng ý hoặc không.
+
+
+Đăng ký, Đăng nhập, News feed (Danh sách giấc mơ, tips,...), Xem chi tiết giấc mơ (danh sách comment, tags, mentions, entry comment,...), User timeline (danh sách giấc mơ, các nút gửi thông điệp,...), Danh sách bạn (tên bạn, trạng thái,...), Thêm bạn (thêm bằng email,...), Trang tìm kiếm giấc mơ.
+
+Tân		News Feed, Xem chi tiết giấc mơ
+Hiếu	User timeline, Trang tìm kiếm giấc mơ
+Phú		Danh sách bạn, Thêm bạn
+Tuyền	Đăng ký, đăng nhập
+
+
+CƠ SỞ DỮ LIỆU
+Mô tả:
+1. Bảng User: Lưu thông tin về các user. Dream: Lưu thông tin về cac dream. Friendship: Lưu thông tin về các kết nối bạn bè. Alarm: Lưu các thông điệp (chúc ngủ ngon, chào buổi sáng). Alarm: Lưu các chuông báo thức. Tip: Lưu các tip sẽ hiện lên trang timeline. Mention, Tag, DreamTag, Comment: Các thông tin phụ liên quan đến Dream.
+- 1 User có thể có nhiều Friendship. Khi 1 user gửi lời mời kết bạn, sẽ đồng thời tạo 2 bản ghi ở Friendship. Bản ghi thứ nhất, sender là người gửi. Bản ghi thứ 2, sender là người nhận.
+VD: Khi May Thy gửi kết bạn tới Vuong Kha Phu: friendshipId 1: state = sent. friendshipId 2: state = is_invited.
+	Khi Vuong Kha Phu chấp nhận lời mời: friendshipId 2: state = accepted. friendshipId 1: state = accepted.
+- 1 User có nhiều Dream.
+- 1 Dream có nhiều Comment, nhiều Tag.
+- 1 Tag có nhiều Dream.
+- 1 Mention có nhiều User.
+- 1 Dream chỉ có 1 Mention.
+- 1 Friendship có nhiều Alarm
+- 1 Friendship có nhiều Message
+
+
+Các truy vấn:
+- Đăng ký	OK
+- Đăng nhập		OK
+- Xem các giấc mơ của bạn bè 	OK
+- Xem các giấc mơ của mình		OK
+- Xem các comment của 1 giấc mơ 	OK
+- Bình luận 1 giấc mơ 
+- Gửi giấc mơ
+- Kết bạn
+- Chấp nhận lời mời kết bạn
+- Hủy kết bạn
+- Xem danh sách bạn		OK
+- Gửi thông điệp chúc ngủ ngon, chào buổi sáng
+- Lấy các tips
+- Tìm kiếm giấc mơ theo tag
+- Gửi chuông báo thức.
